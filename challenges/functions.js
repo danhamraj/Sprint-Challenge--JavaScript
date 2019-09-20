@@ -1,18 +1,34 @@
 // ==== Callbacks ====  
 
 /* Step 1: Create a higher-order function
-  * Create a higher-order function named consume with 3 parameters: a, b and cb
-  * The first two parameters can take any argument (we can pass any value as argument)
-  * The last parameter accepts a callback
-  * The consume function should return the invocation of cb, passing a and b into cb as arguments
-*/
+ * Create a higher-order function named consume with 3 parameters: a, b and cb
+ * The first two parameters can take any argument (we can pass any value as argument)
+ * The last parameter accepts a callback
+ * The consume function should return the invocation of cb, passing a and b into cb as arguments
+ */
+
+function consume(cb, a, b) {
+  return cb(a, b, )
+}
 
 
 /* Step 2: Create several functions to callback with consume();
-  * Create a function named add that returns the sum of two numbers
-  * Create a function named multiply that returns the product of two numbers 
-  * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
-*/
+ * Create a function named add that returns the sum of two numbers
+ * Create a function named multiply that returns the product of two numbers 
+ * Create a function named greeting that accepts a 
+ * first and last name and returns "Hello first-name last-name, nice to meet you!"
+ */
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+console.log(consume(add, 2, 2));
+
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+console.log(consume(multiply, 10, 16));
 
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
@@ -20,12 +36,23 @@
 // console.log(consume(10, 16, multiply)); // 160
 // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
+function greeting(fname, lName) {
+  return `Hello, I am  ${fname} ${lName} nice to meet you!`
+}
+
+console.log(consume(greeting, 'Mary', 'Poppins'));
+
+
 
 // ==== Closures ==== 
 
 // Explain in your own words why nestedfunction can access the variable internal.
 
 // Explanation: 
+// Nested functions are when we put function inside of a function.
+// The variables on the global scope are accessable to the functions.
+// However the variable on the global scope cannot access to the local scope.
+// Nested functions flows downward.
 
 
 const external = "I'm outside the function";
